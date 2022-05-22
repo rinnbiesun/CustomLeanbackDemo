@@ -1,4 +1,4 @@
-package com.rinnbie.customleanbackdemo
+package com.rinnbie.customleanbackdemo.dto
 
 object MovieList {
     val MOVIE_CATEGORY = arrayOf(

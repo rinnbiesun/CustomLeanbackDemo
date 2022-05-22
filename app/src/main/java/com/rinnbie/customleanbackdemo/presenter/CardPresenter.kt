@@ -1,4 +1,4 @@
-package com.rinnbie.customleanbackdemo
+package com.rinnbie.customleanbackdemo.presenter
 
 import android.graphics.drawable.Drawable
 import androidx.leanback.widget.ImageCardView
@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.ViewGroup
 
 import com.bumptech.glide.Glide
+import com.rinnbie.customleanbackdemo.dto.Movie
+import com.rinnbie.customleanbackdemo.R
 import kotlin.properties.Delegates
 
 /**

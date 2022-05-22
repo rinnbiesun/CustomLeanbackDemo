@@ -1,4 +1,4 @@
-package com.rinnbie.customleanbackdemo
+package com.rinnbie.customleanbackdemo.dto
 
 import java.io.Serializable
 

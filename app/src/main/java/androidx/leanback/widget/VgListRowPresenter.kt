@@ -8,8 +8,8 @@ import androidx.leanback.R
 import androidx.leanback.system.Settings
 import androidx.leanback.transition.TransitionHelper
 import com.rinnbie.customleanbackdemo.MainFragment
-import com.rinnbie.customleanbackdemo.VgListRow
-import com.rinnbie.customleanbackdemo.VgListRowView
+import com.rinnbie.customleanbackdemo.view.VgListRow
+import com.rinnbie.customleanbackdemo.view.VgListRowView
 
 class VgListRowPresenter(
     private val focusZoomFactor: Int = FocusHighlight.ZOOM_FACTOR_MEDIUM
@@ -28,6 +28,8 @@ class VgListRowPresenter(
         super.initializeRowViewHolder(holder)
 
         val rowViewHolder = holder as VgListRowPresenter.ViewHolder
+        selectEffectEnabled = false
+
         val context = holder.view.context
         if (shadowOverlayHelper == null) {
             shadowOverlayHelper = ShadowOverlayHelper.Builder()

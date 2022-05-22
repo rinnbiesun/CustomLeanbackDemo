@@ -10,6 +10,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.leanback.app.CustomRowsSupportFragment
 import androidx.leanback.widget.*
+import com.rinnbie.customleanbackdemo.dto.MovieList
+import com.rinnbie.customleanbackdemo.presenter.CardPresenter
+import com.rinnbie.customleanbackdemo.presenter.CustomListRowPresenter
+import com.rinnbie.customleanbackdemo.view.VgListRow
 
 class MainFragment : CustomRowsSupportFragment() {
 
@@ -19,14 +23,8 @@ class MainFragment : CustomRowsSupportFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val presenterSelector = ClassPresenterSelector()
-        presenterSelector.addClassPresenter(
-            ListRow::class.java,
-            ListRowPresenter().apply { selectEffectEnabled = false }
-        )
-        presenterSelector.addClassPresenter(
-            VgListRow::class.java,
-            VgListRowPresenter().apply { selectEffectEnabled = false }
-        )
+        presenterSelector.addClassPresenter(ListRow::class.java, CustomListRowPresenter())
+        presenterSelector.addClassPresenter(VgListRow::class.java, VgListRowPresenter())
         rowsAdapter = ArrayObjectAdapter(presenterSelector)
         adapter = rowsAdapter
         loadRows()

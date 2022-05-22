@@ -1,4 +1,4 @@
-package com.rinnbie.customleanbackdemo
+package com.rinnbie.customleanbackdemo.view
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,6 +6,7 @@ import kotlin.jvm.JvmOverloads
 import android.widget.LinearLayout
 import androidx.leanback.widget.VerticalGridView
 import android.view.LayoutInflater
+import com.rinnbie.customleanbackdemo.R
 
 class VgListRowView @JvmOverloads constructor(
     context: Context?,

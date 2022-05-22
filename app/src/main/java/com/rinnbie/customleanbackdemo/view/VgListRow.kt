@@ -1,4 +1,4 @@
-package com.rinnbie.customleanbackdemo
+package com.rinnbie.customleanbackdemo.view
 
 import androidx.leanback.widget.HeaderItem
 import androidx.leanback.widget.ListRow
