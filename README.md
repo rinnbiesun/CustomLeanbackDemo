@@ -27,3 +27,45 @@ override fun onBindRowViewHolder(holder: RowPresenter.ViewHolder, item: Any) {
         }
     }
 ```
+
+### Limitation
+There is a wrong scrolling behavior if the row number of `VerticalGridView` is larger than the screen size. Need further experiments for it.
+
+## Custom Row HeaderView
+<img src="https://user-images.githubusercontent.com/103634274/169695385-e7f7826f-5878-46a4-aa8f-f1fa731f1539.png" width="500">
+
+Implement a custom `ListRowPresenter` & `RowHeaderPresenter`
+``` Kotlin
+class CustomListRowPresenter : ListRowPresenter() {
+    private var customHeaderPresenter: CustomHeaderPresenter = CustomHeaderPresenter()
+
+    init {
+        headerPresenter = customHeaderPresenter      // set a new RowHeaderPresenter
+        shadowEnabled = false
+        selectEffectEnabled = false
+    }
+}
+```
+
+
+``` Kotlin
+class CustomHeaderPresenter : RowHeaderPresenter() {
+    override fun onCreateViewHolder(parent: ViewGroup): Presenter.ViewHolder {
+        // Create a view by xml
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_custom_header, parent, false)
+        view.isFocusable = false
+        view.isFocusableInTouchMode = false
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(viewHolder: Presenter.ViewHolder, item: Any?) {
+        // Get ListRow object to update a view 
+        val header: TextView = viewHolder.view.findViewById(R.id.header)
+        header.text = (item as? ListRow)?.headerItem?.name.orEmpty()
+    }
+
+    override fun onUnbindViewHolder(viewHolder: Presenter.ViewHolder) {
+        super.onUnbindViewHolder(viewHolder)
+    }
+}
+```
