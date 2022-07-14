@@ -29,7 +29,12 @@ override fun onBindRowViewHolder(holder: RowPresenter.ViewHolder, item: Any) {
 ```
 
 ### Limitation
-There is a wrong scrolling behavior if the row number of `VerticalGridView` is larger than the screen size. Need further experiments for it.
+There is a wrong scrolling behavior if the row number of `VerticalGridView` is larger than the screen size. To fix the problem, we can separate items into multiple `VerticalGridView` in multiple `ListRow`. Implementation will be provided in the future.
+
+Example
+| Item Count  | Items per VerticalGridView row | Max Items per VerticalGridView | Final ListRow count
+| --- | --- | --- | --- |
+| 16  | 4 | 8 | 2 |
 
 ## Custom Row HeaderView
 <img src="https://user-images.githubusercontent.com/103634274/169695385-e7f7826f-5878-46a4-aa8f-f1fa731f1539.png" width="500">
